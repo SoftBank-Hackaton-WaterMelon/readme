@@ -105,24 +105,6 @@ AWS의 CodeDeploy, ECS, Lambda, Slack API, GitHub Actions를 유기적으로 연
 
                                                                                             AWS 기반 CI/CD Blue-Green 다이어그램
 
-## 구성 요소
-
-| 구성 요소 | 역할 및 설명 |
-| --- | --- |
-| **GitHub Actions** | - `git push` 시 CI 파이프라인을 자동 실행
-- Slack으로 배포 상태를 알리고, 사용자가 태그를 선택해 배포 승인 후 CD 파이프라인 실행 |
-| **GitHub Container Registry** | - 빌드된 Docker 이미지를 저장하는 컨테이너 레지스트리
-- ECS는 여기서 이미지를 가져와 Blue/Green 환경에 배포 |
-| **ECS (Elastic Container Service)** | - 컨테이너 기반의 Blue/Green 배포를 담당
-- 새 버전(green) 컨테이너를 띄우고, 트래픽 전환을 관리 |
-| **CodeDeploy** | - ECS와 Lambda 사이의 배포 흐름을 제어
-- 배포 그룹과 라이프사이클 훅을 관리하여 **무중단 배포**를 보장 |
-| **Lambda** | - CodeDeploy의 훅 이벤트를 받아 테스트 및 승인 단계 수행 
-- DynamoDB에 상태 저장 및 Slack에 알림 전송 |
-| **DynamoDB** | - DeploymentID, HookExecutionID를 저장해 Lambda와 CodeDeploy 간의 연결을 유지 |
-| **Slackbot** | - `/platform-deploy` 명령으로 배포 시작 및 승인/거절을 담당
-- 배포 상태를 **치이카와 이미지로 피드백**하여 감정적 경험을 제공 |
-
 ## 배포 흐름
 
 <aside>
