@@ -1,7 +1,6 @@
 # 치이카와, 오늘도 배포 중입니다
 
 <aside>
-<img src="https://www.notion.so/icons/thought_orange.svg" alt="https://www.notion.so/icons/thought_orange.svg" width="40px" />
 
 🧑‍🎓 **고은호**
 - 클라우드 & CI/CD 자동화 담당
